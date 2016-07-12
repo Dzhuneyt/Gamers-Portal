@@ -26,6 +26,8 @@ EXPOSE 80
 ADD migrate.sh /migrate.sh
 RUN chmod +x /migrate.sh
 
+ENV ALLOW_OVERRIDE true
+
 #ENTRYPOINT ["/code/yii", "migrate"]
 
 #CMD php -S 0.0.0.0:8000 -t /app/frontend/web
