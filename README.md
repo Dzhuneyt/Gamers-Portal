@@ -17,6 +17,13 @@ Run `yii migrate` to apply DB migrations.
 The backend is accessible through /backend/web.
 The frontend is accessible through /frontend/web. It is recommended to create virtual hosts to these folders instead of accessing directly.
 
+How to run in Docker mode?
+---
+Execute `docker-compose up -d`
+
+Execute migrations by running:
+
+`docker-compose run -d --rm web /code/yii migrate --interactive=0`
 
 How to fetch the latest releases from Gamespot?
 ---

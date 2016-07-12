@@ -16,11 +16,20 @@
     "require": {
         "php": ">=5.4.0",
         "yiisoft/yii2": ">=2.0.6",
-        "yiisoft/yii2-bootstrap": "*",
-        "yiisoft/yii2-swiftmailer": "*",
-        "linslin/yii2-curl": "*",
+        "yiisoft/yii2-bootstrap": "2.0.*",
+        "yiisoft/yii2-swiftmailer": "2.0.*",
+        "linslin/yii2-curl": "1.0.8",
         "sunra/php-simple-html-dom-parser": "^1.5",
-        "mashape/unirest-php": "^3.0"
+        "mashape/unirest-php": "^3.0",
+
+        "bower-asset/bootstrap": "3.3.6",
+        "bower-asset/jquery": "2.2.4",
+        "bower-asset/jquery.inputmask": "3.2.7",
+        "bower-asset/punycode": "1.3.2",
+        "bower-asset/typeahead.js": "0.11.1",
+        "bower-asset/yii2-pjax": "2.0.6",
+        "cebe/markdown": "1.1.0",
+        "ezyang/htmlpurifier": "4.7.0"
     },
     "require-dev": {
         "yiisoft/yii2-codeception": "*",
@@ -29,13 +38,17 @@
         "yiisoft/yii2-faker": "*"
     },
     "config": {
-        "process-timeout": 1800
+        "process-timeout": 1800,
+        "github-oauth": {
+            "github.com": "e2ae3003478a8146921cedde42fcca8e5c37ef46"
+        }
     },
     "extra": {
         "asset-installer-paths": {
             "npm-asset-library": "vendor/npm",
             "bower-asset-library": "vendor/bower"
-        }
+        },
+        "asset-optimize-with-installed-packages": false
     },
     "scripts": {
         "post-install-cmd": "php init --env=Development --overwrite=n"

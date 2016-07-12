@@ -3,6 +3,7 @@
 namespace common\models;
 
 use Yii;
+use yii\db\Query;
 
 /**
  * This is the model class for table "{{%game}}".
@@ -67,6 +68,71 @@ class Game extends \yii\db\ActiveRecord
      */
     public function getIdPlatforms()
     {
-        return $this->hasMany(Platform::className(), ['id' => 'id_platform'])->viaTable('{{%game_platform}}', ['id_game' => 'id']);
+        return $this->hasMany(Platform::className(), ['id' => 'id_platform'])->viaTable('{{%game_platform}}',
+            ['id_game' => 'id']);
+    }
+
+    public static function setLastUpdateTimestamp($gameId, $timestamp = null)
+    {
+        if ($timestamp === null) {
+            $timestamp = time();
+        }
+        $model = GameAttributes::find()->where([
+            'game_id' => $gameId,
+            'attribute' => GameAttributes::ATTRIBUTE_GAMESPOT_LAST_UPDATE,
+        ])->one();
+        if (!$model) {
+            $model = new GameAttributes();
+            $model->game_id = $gameId;
+            $model->attribute = GameAttributes::ATTRIBUTE_GAMESPOT_LAST_UPDATE;
+        }
+        $model->value = (string)$timestamp;
+        if (!$model->save()) {
+            Yii::error($model->getErrors());
+            return false;
+        } else {
+            return true;
+        }
+
+    }
+
+    public static function getLastUpdateTimestamp($gameId)
+    {
+        return (new Query())->select('value')
+            ->from(GameAttributes::tableName())
+            ->where(['attribute' => GameAttributes::ATTRIBUTE_GAMESPOT_LAST_UPDATE])
+            ->andWhere(['game_id' => $gameId])
+            ->scalar();
+    }
+
+    public static function setGamespotUrl($gameId, $gamespotUrl)
+    {
+        $model = GameAttributes::find()->where([
+            'game_id' => $gameId,
+            'attribute' => GameAttributes::ATTRIBUTE_GAMESPOT_URL
+        ])->one();
+        if (!$model) {
+            $model = new GameAttributes();
+            $model->game_id = $gameId;
+            $model->attribute = GameAttributes::ATTRIBUTE_GAMESPOT_URL;
+        }
+
+        $model->value = $gamespotUrl;
+
+        if (!$model->save()) {
+            Yii::error($model->getErrors());
+            return false;
+        } else {
+            return true;
+        }
+    }
+
+    public static function getGamespotUrl($gameId)
+    {
+        return (new Query())->select('value')
+            ->from(GameAttributes::tableName())
+            ->where(['attribute' => GameAttributes::ATTRIBUTE_GAMESPOT_URL])
+            ->andWhere(['game_id' => $gameId])
+            ->scalar();
     }
 }
