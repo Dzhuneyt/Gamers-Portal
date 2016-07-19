@@ -1,17 +1,31 @@
 version: '2'
 services:
   web:
-    build: ./code/
+    build:
+      context: ./code/
+      dockerfile: Dockerfile-web
+    image: hasmobi/gameportal/apache
     links:
       - db
     depends_on:
       - db
     ports:
       - "8000:80"
-    mem_limit: 1000000000
-    memswap_limit: 2000000000
     environment:
       ALLOW_OVERRIDE: "true"
+  migrations:
+    build:
+      context: ./code/
+      dockerfile: Dockerfile-migrations
+    depends_on:
+      - web
+  onetime_scrape:
+    build:
+      context: ./code/
+      dockerfile: Dockerfile-onetime-scrape
+    depends_on:
+      - migrations
+      - web
   db:
     image: mysql:5.6
     ports:

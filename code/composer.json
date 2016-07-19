@@ -21,6 +21,7 @@
         "linslin/yii2-curl": "1.0.8",
         "sunra/php-simple-html-dom-parser": "^1.5",
         "mashape/unirest-php": "^3.0",
+        "spacedealer/yii2-loggly": "*",
 
         "bower-asset/bootstrap": "3.3.6",
         "bower-asset/jquery": "2.2.4",

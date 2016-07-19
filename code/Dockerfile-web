@@ -1,0 +1,7 @@
+FROM tutum/apache-php
+
+ADD . /code
+
+RUN chmod 755 /code/deploy.sh && bash /code/deploy.sh
+
+WORKDIR /code
