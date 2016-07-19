@@ -14,6 +14,9 @@ class GamespotController extends Controller
 {
     public function actionScrapeComingSoonGames()
     {
+
+        set_time_limit(600); // 10 minutes
+
         $gameFetchMinIntervalSeconds = 3600 * 24 * 7;
 
         $url = 'http://www.gamespot.com/gamespot-50/';
@@ -24,6 +27,8 @@ class GamespotController extends Controller
         $scrapedGames = [];
 
         echo "Scraping information for " . count($top50GameUrls) . ' games' . PHP_EOL;
+
+        $top50GameUrls = array_slice($top50GameUrls, 0, 3);
 
         foreach ($top50GameUrls as $gameUrl) {
 
@@ -83,6 +88,8 @@ class GamespotController extends Controller
                 // Game fetched recently, no need to fetch again
                 echo 'Game already fetched recently: ' . $gameName . PHP_EOL;
             }
+
+            usleep(rand(1000,3500));
         }
     }
 //    public function actionScrapeGame($url)

@@ -23,8 +23,8 @@ WORKDIR /code
 
 EXPOSE 80
 
-ADD migrate.sh /migrate.sh
-RUN chmod +x /migrate.sh
+#ADD migrate.sh /migrate.sh
+#RUN chmod +x /migrate.sh
 
 ENV ALLOW_OVERRIDE true
 
