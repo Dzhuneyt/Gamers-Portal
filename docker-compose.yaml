@@ -1,4 +1,6 @@
 version: '2'
+volumes:
+  code:
 services:
   web:
     build:
@@ -11,21 +13,31 @@ services:
       - db
     ports:
       - "8000:80"
+    volumes:
+      - code:/code
     environment:
       ALLOW_OVERRIDE: "true"
+      mashapeKey: "C2k162btRUmshbmnbBZKYilNH7ebp1nMZGnjsngVL5jWfVPWcI"
+      imgurClientId: "fb240b5dfff7c3c"
   migrations:
     build:
       context: ./code/
       dockerfile: Dockerfile-migrations
+    image: hasmobi/gameportal/migrations
     depends_on:
+      - web
+    volumes_from:
       - web
   onetime_scrape:
     build:
       context: ./code/
       dockerfile: Dockerfile-onetime-scrape
+    image: hasmobi/gameportal/onetime-scrape
     depends_on:
       - migrations
       - web
+    volumes_from:
+        - web
   db:
     image: mysql:5.6
     ports:

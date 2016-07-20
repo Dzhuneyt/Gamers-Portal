@@ -1,5 +1,6 @@
 FROM hasmobi/gameportal/apache
 
-RUN chmod 755 /code/deploy.sh && chmod 755 /code/migrations.sh && bash /code/deploy.sh
+#RUN chmod 755 /code/deploy.sh && chmod 755 /code/migrations.sh && bash /code/deploy.sh
+RUN chmod 755 /code/migrations.sh
 
 ENTRYPOINT ["bash", "/code/migrations.sh"]

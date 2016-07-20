@@ -28,7 +28,10 @@ return [
             // for the mailer to send real emails.
             'useFileTransport' => true,
         ],
-
+        'imageUploader' => [
+            'mashapeKey' => getenv('mashapeKey'),
+            'imgurClientId' => getenv('imgurClientId'),
+        ],
         'log' => [
             'targets' => [
                 'loggly' => [

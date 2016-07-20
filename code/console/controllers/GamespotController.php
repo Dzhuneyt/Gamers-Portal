@@ -69,6 +69,7 @@ class GamespotController extends Controller
 
                 if (!$game->save()) {
                     \Yii::error($game->getErrors());
+                    echo 'Unable to save game '.$game->name.' due to '.print_r($game->getFirstErrors(), true);
                 } else {
                     Game::setLastUpdateTimestamp($game->id);
                     Game::setGamespotUrl($game->id, $gameUrl);
