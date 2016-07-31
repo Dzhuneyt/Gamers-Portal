@@ -13,6 +13,7 @@ use common\components\scraping\scraper\Scraper;
 
 class GamespotSingleGameScraper extends Scraper
 {
+
     public function getTitle()
     {
         $title = parent::getTitle();

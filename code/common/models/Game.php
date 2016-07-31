@@ -16,6 +16,7 @@ use yii\db\Query;
  * @property string $promo_img_url
  *
  * @property GamePlatform[] $gamePlatforms
+ * @property GameAttributes[] $gameAttributes
  * @property Platform[] $idPlatforms
  */
 class Game extends \yii\db\ActiveRecord
@@ -26,6 +27,43 @@ class Game extends \yii\db\ActiveRecord
     public static function tableName()
     {
         return '{{%game}}';
+    }
+
+    public static function updateGamePlatforms($id, array $gamePlatforms)
+    {
+        GamePlatform::deleteAll(['id_game' => $id]);
+
+        // Pre-create new platforms
+        $existingPlatforms = Platform::find()->indexBy('name')->all();
+        foreach ($gamePlatforms as $platformName) {
+            if (!isset($existingPlatforms[$platformName])) {
+                Yii::warning('Creating new platform: ' . $platformName);
+
+                $model = new Platform();
+                $model->name = $platformName;
+                if (!$model->save()) {
+                    Yii::error('Unable to save platform ' . $platformName);
+                    Yii::error($model->getErrors());
+                } else {
+                    $existingPlatforms[$platformName] = $model;
+                }
+            }
+        }
+
+        // Assign the game's platforms, finally
+        foreach ($gamePlatforms as $platform) {
+            if (!isset($existingPlatforms[$platform])) {
+                continue; // Fatal error?
+            }
+
+            $model = new GamePlatform();
+            $model->id_game = $id;
+            $model->id_platform = $existingPlatforms[$platform]->id;
+            if (!$model->save()) {
+                Yii::error('Unable to assign platform ' . $platform . ' to game ' . $id);
+                Yii::error($model->getErrors());
+            }
+        }
     }
 
     /**
@@ -66,6 +104,24 @@ class Game extends \yii\db\ActiveRecord
     /**
      * @return \yii\db\ActiveQuery
      */
+    public function getGameAttributes()
+    {
+        return $this->hasMany(GameAttributes::className(), ['game_id' => 'id']);
+    }
+
+    public function getPlatforms()
+    {
+        $platforms = $this->getGamePlatforms()->all();
+        $tmp = [];
+        foreach ($platforms as $platform) {
+            $tmp[] = $platform->idPlatform->name;
+        }
+        return $tmp;
+    }
+
+    /**
+     * @return \yii\db\ActiveQuery
+     */
     public function getIdPlatforms()
     {
         return $this->hasMany(Platform::className(), ['id' => 'id_platform'])->viaTable('{{%game_platform}}',
@@ -96,9 +152,25 @@ class Game extends \yii\db\ActiveRecord
 
     }
 
-    public static function getLastUpdateTimestamp($gameId)
+    /**
+     * @param $url
+     * @return Game
+     */
+    public static function findGameByGamespotUrl($url)
     {
-        return (new Query())->select('value')
+        return Game::find()->joinWith('gameAttributes')->where([
+            'game_attributes.attribute' => GameAttributes::ATTRIBUTE_GAMESPOT_URL,
+            'game_attributes.value' => $url
+        ])->one();
+    }
+
+    public function getLastUpdateTimestamp($gameId = null)
+    {
+        if (!$gameId) {
+            $gameId = $this->id;
+        }
+
+        return (int)(new Query())->select('value')
             ->from(GameAttributes::tableName())
             ->where(['attribute' => GameAttributes::ATTRIBUTE_GAMESPOT_LAST_UPDATE])
             ->andWhere(['game_id' => $gameId])

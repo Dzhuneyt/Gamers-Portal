@@ -13,11 +13,12 @@ use frontend\models\PasswordResetRequestForm;
 use frontend\models\ResetPasswordForm;
 use frontend\models\SignupForm;
 use frontend\models\ContactForm;
+use yii\web\NotFoundHttpException;
 
 /**
  * Site controller
  */
-class SiteController extends Controller
+class GameController extends Controller
 {
     /**
      * @inheritdoc
@@ -69,6 +70,7 @@ class SiteController extends Controller
     /**
      * Displays homepage.
      *
+     * @param int $page
      * @return mixed
      */
     public function actionIndex($page = 1)
@@ -77,13 +79,29 @@ class SiteController extends Controller
             $page = 1;
         }
 
-        $offset = ($page-1) * 20;
+        $offset = ($page - 1) * 20;
         $limit = 20;
 
         $games = Game::find()->offset($offset)->limit($limit)->all();
 
-        return $this->render('index', [
+        return $this->render('games_grid', [
             'games' => $games,
+        ]);
+    }
+
+    public function actionDetails($id)
+    {
+        $game = Game::findOne($id);
+
+        if (!$game) {
+            throw new NotFoundHttpException('Invalid game');
+        }
+
+        $relatedGames = Game::find()->orderBy('RAND()')->limit(3)->all();
+
+        return $this->render('game_details', [
+            'model' => $game,
+            'related' => $relatedGames,
         ]);
     }
 
@@ -142,16 +160,6 @@ class SiteController extends Controller
                 'model' => $model,
             ]);
         }
-    }
-
-    /**
-     * Displays about page.
-     *
-     * @return mixed
-     */
-    public function actionAbout()
-    {
-        return $this->render('about');
     }
 
     /**

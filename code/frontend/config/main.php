@@ -10,6 +10,7 @@ return [
     'id' => 'app-frontend',
     'basePath' => dirname(__DIR__),
     'bootstrap' => ['log'],
+    'defaultRoute' => 'game/index',
     'controllerNamespace' => 'frontend\controllers',
     'components' => [
         'user' => [
@@ -21,12 +22,15 @@ return [
             'targets' => [
                 [
                     'class' => 'yii\log\FileTarget',
-                    'levels' => ['error', 'warning'],
+                    'levels' => ['error', 'warning', 'info'],
                 ],
             ],
         ],
         'errorHandler' => [
-            'errorAction' => 'site/error',
+            'errorAction' => 'game/error',
+        ],
+        'cache' => [
+            'class' => 'yii\caching\DummyCache',
         ],
         /*
         'urlManager' => [

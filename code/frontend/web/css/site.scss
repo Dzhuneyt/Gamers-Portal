@@ -1,0 +1,113 @@
+@import "imports/variables";
+@import "imports/common";
+
+body .wrap > .container {
+  //margin: 0 auto;
+  //width: 100%;
+  //padding-top: 50px;
+}
+
+.navbar-custom {
+  background-color: $colorPrimary;
+  color: $colorSecondary;
+  border-radius: 0;
+
+  .navbar-nav > li > a {
+    color: $colorSecondary;
+  }
+  .navbar-nav > li:active > a {
+    color: $colorSecondary;
+  }
+  .navbar-nav > .active > a, .navbar-nav > .active > a:hover, .navbar-nav > .active > a:focus {
+    color: $colorSecondary;
+    background-color: transparent;
+  }
+  .navbar-brand {
+    color: $colorSecondary;
+  }
+}
+
+#game-details {
+  margin-left: -15px;
+  margin-right: -15px;
+
+  #cover {
+    width: 100%;
+    padding: 30px 100px 0;
+    -webkit-background-size: cover;
+    background-size: cover;
+    color: white;
+    position: relative;
+  }
+  h1, h2, h3, h4, h5, h6 {
+    margin: 0;
+  }
+  h1 {
+    font-weight: bold;
+    margin-bottom: 10px;
+  }
+  #thumb {
+    img {
+      width: 100%;
+      max-width: 150px;
+    }
+  }
+  #game-metadata {
+    margin-left: 20px;
+  }
+  #description {
+    margin-left: -100px;
+    margin-right: -100px;
+    background: $colorPrimary;
+    color: $colorSecondary;
+    margin-top: 60px;
+    padding: 15px 30px;
+    text-align: center;
+  }
+
+  .nav-tabs {
+    color: black;
+    border-bottom: 1px solid $colorPrimary;
+
+    h4 {
+      padding: 10px;
+    }
+    > li > a {
+      border-radius: 0;
+      margin: 0;
+      border-top: 0;
+    }
+    > li.active a {
+      border-bottom-color: $colorSecondary;
+    }
+    > li > a:hover {
+      background: $colorPrimary;
+      color: $colorSecondary;
+    }
+  }
+  .tab-content {
+    padding: 20px;
+  }
+
+  #related-games {
+    background: $colorPrimary;
+    color: $colorSecondary;
+    padding: 15px;
+    margin-top: 450px;
+
+    a {
+      color: $colorSecondary;
+    }
+
+    .thumb {
+      margin-right: 10px;
+      img {
+        width: 50px;
+        height: 50px;
+      }
+    }
+    h3 {
+      padding-left: 20px;
+    }
+  }
+}

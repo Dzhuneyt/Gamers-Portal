@@ -35,7 +35,7 @@ $this->title = 'Latest Games';
                         <a class="btn btn-primary btn-lg" href="#">
                             Download
                         </a>
-                        <a class="btn btn-default btn-lg" href="#">
+                        <a class="btn btn-default btn-lg" href="<?=\yii\helpers\Url::to(['game/details', 'id'=>$game->id])?>">
                             Details
                         </a>
                     </div>
