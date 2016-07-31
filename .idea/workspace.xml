@@ -2,28 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c193a3e1-a46f-4b43-b200-4e13d8fc94d9" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/watcherTasks.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/code/frontend/views/game/game_details.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/code/frontend/web/css/imports/common.scss" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/code/frontend/web/css/imports/variables.scss" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/code/frontend/views/site/about.php" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/code/common/components/scraping/GamespotSingleGameScraper.php" afterPath="$PROJECT_DIR$/code/common/components/scraping/GamespotSingleGameScraper.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/code/common/components/scraping/scraper/Scraper.php" afterPath="$PROJECT_DIR$/code/common/components/scraping/scraper/Scraper.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/code/common/models/Game.php" afterPath="$PROJECT_DIR$/code/common/models/Game.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/code/console/config/main.php" afterPath="$PROJECT_DIR$/code/console/config/main.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/code/console/controllers/GamespotController.php" afterPath="$PROJECT_DIR$/code/console/controllers/GamespotController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/code/frontend/config/main.php" afterPath="$PROJECT_DIR$/code/frontend/config/main.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/code/frontend/views/layouts/main.php" afterPath="$PROJECT_DIR$/code/frontend/views/layouts/main.php" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/code/frontend/controllers/SiteController.php" afterPath="$PROJECT_DIR$/code/frontend/controllers/GameController.php" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/code/frontend/views/site/contact.php" afterPath="$PROJECT_DIR$/code/frontend/views/game/contact.php" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/code/frontend/views/site/error.php" afterPath="$PROJECT_DIR$/code/frontend/views/game/error.php" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/code/frontend/views/site/index.php" afterPath="$PROJECT_DIR$/code/frontend/views/game/games_grid.php" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/code/frontend/views/site/login.php" afterPath="$PROJECT_DIR$/code/frontend/views/game/login.php" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/code/frontend/views/site/requestPasswordResetToken.php" afterPath="$PROJECT_DIR$/code/frontend/views/game/requestPasswordResetToken.php" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/code/frontend/views/site/resetPassword.php" afterPath="$PROJECT_DIR$/code/frontend/views/game/resetPassword.php" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/code/frontend/views/site/signup.php" afterPath="$PROJECT_DIR$/code/frontend/views/game/signup.php" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/code/frontend/web/css/site.css" afterPath="$PROJECT_DIR$/code/frontend/web/css/site.scss" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/code/frontend/views/game/game_details.php" afterPath="$PROJECT_DIR$/code/frontend/views/game/game_details.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/code/frontend/web/css/imports/variables.scss" afterPath="$PROJECT_DIR$/code/frontend/web/css/imports/variables.scss" />
     </list>
     <ignored path="games.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -62,23 +43,23 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="site.scss" pinned="false" current-in-tab="true">
+      <file leaf-file-name="site.scss" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/code/frontend/web/css/site.scss">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="270">
-              <caret line="70" column="0" selection-start-line="70" selection-start-column="0" selection-end-line="70" selection-end-column="0" />
+            <state relative-caret-position="335">
+              <caret line="71" column="8" selection-start-line="71" selection-start-column="8" selection-end-line="71" selection-end-column="8" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="game_details.php" pinned="false" current-in-tab="false">
+      <file leaf-file-name="game_details.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/code/frontend/views/game/game_details.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="432">
-              <caret line="45" column="25" selection-start-line="45" selection-start-column="25" selection-end-line="45" selection-end-column="25" />
+            <state relative-caret-position="459">
+              <caret line="41" column="10" selection-start-line="41" selection-start-column="10" selection-end-line="41" selection-end-column="10" />
               <folding>
-                <marker date="1470003477025" expanded="true" signature="4022:4165" ph="..." />
+                <marker date="1470004212564" expanded="true" signature="4473:4616" ph="..." />
               </folding>
             </state>
           </provider>
@@ -164,10 +145,10 @@
         <option value="$PROJECT_DIR$/code/common/models/Game.php" />
         <option value="$PROJECT_DIR$/code/frontend/controllers/GameController.php" />
         <option value="$PROJECT_DIR$/code/frontend/views/layouts/main.php" />
-        <option value="$PROJECT_DIR$/code/frontend/web/css/imports/variables.scss" />
         <option value="$PROJECT_DIR$/code/frontend/web/css/imports/common.scss" />
-        <option value="$PROJECT_DIR$/code/frontend/views/game/game_details.php" />
         <option value="$PROJECT_DIR$/code/frontend/web/css/site.scss" />
+        <option value="$PROJECT_DIR$/code/frontend/web/css/imports/variables.scss" />
+        <option value="$PROJECT_DIR$/code/frontend/views/game/game_details.php" />
       </list>
     </option>
   </component>
@@ -1021,12 +1002,12 @@
       <workItem from="1469471015380" duration="46000" />
       <workItem from="1469472698804" duration="254000" />
       <workItem from="1469474545320" duration="8000" />
-      <workItem from="1469992977898" duration="10721000" />
+      <workItem from="1469992977898" duration="11229000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="58875000" />
+    <option name="totallyTimeSpent" value="59383000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-9" y="-9" width="1938" height="1060" extended-state="6" />
@@ -1070,13 +1051,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/code/deploy.sh">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="109">
-          <caret line="10" column="20" selection-start-line="10" selection-start-column="20" selection-end-line="10" selection-end-column="20" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/code/environments/dev/common/config/params-local.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -1439,24 +1413,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/code/frontend/web/css/imports/variables.scss">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="81">
-          <caret line="3" column="25" selection-start-line="3" selection-start-column="25" selection-end-line="3" selection-end-column="25" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/code/frontend/views/game/game_details.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="432">
-          <caret line="45" column="25" selection-start-line="45" selection-start-column="25" selection-end-line="45" selection-end-column="25" />
-          <folding>
-            <marker date="1470003477025" expanded="true" signature="4022:4165" ph="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/code/frontend/web/css/imports/common.scss">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-1674">
@@ -1465,11 +1421,37 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/code/frontend/web/css/imports/variables.scss">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="81">
+          <caret line="3" column="18" selection-start-line="3" selection-start-column="18" selection-end-line="3" selection-end-column="18" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/code/frontend/web/css/imports/variables.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="187">
+          <caret line="19" column="43" selection-start-line="19" selection-start-column="43" selection-end-line="19" selection-end-column="43" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/code/frontend/web/css/site.scss">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="270">
-          <caret line="70" column="0" selection-start-line="70" selection-start-column="0" selection-end-line="70" selection-end-column="0" />
+        <state relative-caret-position="335">
+          <caret line="71" column="8" selection-start-line="71" selection-start-column="8" selection-end-line="71" selection-end-column="8" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/code/frontend/views/game/game_details.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="459">
+          <caret line="41" column="10" selection-start-line="41" selection-start-column="10" selection-end-line="41" selection-end-column="10" />
+          <folding>
+            <marker date="1470004212564" expanded="true" signature="4473:4616" ph="..." />
+          </folding>
         </state>
       </provider>
     </entry>

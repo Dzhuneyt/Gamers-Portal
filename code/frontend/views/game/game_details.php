@@ -36,11 +36,14 @@ $this->title = $model->name;
         <ul class="nav nav-tabs" role="tablist">
             <li role="presentation" class="active"><a href="#trailers" aria-controls="trailers" role="tab"
                                                       data-toggle="tab">
-                    <h4>Videos and Trailers</h4>
+                    <h4>Gameplay Videos and Trailers</h4>
+                </a></li>
+            <li role="presentation"><a href="#news" aria-controls="news" role="tab" data-toggle="tab">
+                    <h4>News</h4>
                 </a></li>
             <li role="presentation"><a href="#comments" aria-controls="comments" role="tab" data-toggle="tab">
-                    <h4>Comments</h4>
-            </a></li>
+                    <h4>Discussion Forum</h4>
+                </a></li>
             <li role="presentation"><a href="#reviews" aria-controls="reviews" role="tab" data-toggle="tab">
                     <h4>Reviews</h4>
                 </a></li>
@@ -51,6 +54,12 @@ $this->title = $model->name;
 
         <!-- Tab panes -->
         <div class="tab-content lead">
+            <div role="tabpanel" class="tab-pane" id="news">
+                <p>
+                    Latest news and updates on <?= $model->name ?>. At the moment, there are no news
+                    for <?= $model->name ?>.
+                </p>
+            </div>
             <div role="tabpanel" class="tab-pane active" id="trailers">
                 <p>
                     Here you can find the latest <b><?= $model->name ?> gameplay videos</b> and <b><?= $model->name ?>
