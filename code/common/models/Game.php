@@ -3,6 +3,7 @@
 namespace common\models;
 
 use Yii;
+use yii\behaviors\TimestampBehavior;
 use yii\db\Query;
 
 /**
@@ -75,6 +76,16 @@ class Game extends \yii\db\ActiveRecord
             [['name', 'description', 'release_date', 'cover_url', 'promo_img_url'], 'safe'],
             [['description'], 'string'],
             [['name', 'cover_url', 'promo_img_url'], 'string', 'max' => 255],
+        ];
+    }
+
+    /**
+     * @inheritdoc
+     */
+    public function behaviors()
+    {
+        return [
+            TimestampBehavior::className(),
         ];
     }
 

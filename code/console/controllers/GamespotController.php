@@ -30,7 +30,7 @@ class GamespotController extends Controller
 
         echo "Scraping information for " . count($top50GameUrls) . ' games' . PHP_EOL;
 
-        $top50GameUrls = array_slice($top50GameUrls, 0, 3);
+        //$top50GameUrls = array_slice($top50GameUrls, 0, 3);
 
         foreach ($top50GameUrls as $gameUrl) {
             $transaction = \Yii::$app->getDb()->getTransaction() ? \Yii::$app->getDb()->getTransaction() : \Yii::$app->getDb()->beginTransaction();
@@ -110,7 +110,7 @@ class GamespotController extends Controller
                 $transaction->rollBack();
             }
 
-            if(count($scrapedGames)>=3){
+            if(count($scrapedGames)>=9){
                 break;
             }
         }

@@ -64,8 +64,55 @@ $this->title = $model->name;
                 <p>
                     Here you can find the latest <b><?= $model->name ?> gameplay videos</b> and <b><?= $model->name ?>
                         trailers</b>.
-                    Unfortunately, at the moment there are no videos, associated with <b><?= $model->name ?></b> yet.
                 </p>
+
+                <br/>
+
+                <!-- Common video player Modal -->
+                <div class="modal fade bs-example-modal-lg" id="video-player" tabindex="-1" role="dialog"
+                     aria-labelledby="myModalLabel">
+                    <div class="modal-dialog modal-lg" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                                        aria-hidden="true">&times;</span></button>
+                                <h4 class="modal-title"></h4>
+                            </div>
+                            <div class="modal-body">
+
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <? foreach ($videos as $video): ?>
+                    <?
+                    $videoId = $video->id->videoId;
+                    $title = $video->snippet->title;
+                    $rand = sha1($videoId);
+                    ?>
+                    <div class="media">
+                        <div class="media-left">
+                            <a class="play-trailer" data-title="<?=$title?>" data-video-id="<?=$videoId?>">
+                                <img style="width: 90px;" class="media-object img-thumbnail"
+                                     src="<?= $video->snippet->thumbnails->default->url ?>" alt="...">
+                            </a>
+                        </div>
+                        <div class="media-body">
+                            <h3 class="media-heading">
+                                <?= $video->snippet->title ?>
+                            </h3>
+
+                            <div>
+                                <?= $video->snippet->description ?>
+                            </div>
+                        </div>
+                    </div>
+
+                <? endforeach; ?>
             </div>
             <div role="tabpanel" class="tab-pane" id="comments">
                 <p>
@@ -114,6 +161,7 @@ $this->title = $model->name;
                 </div>
             <? endforeach; ?>
         </div>
+        <br/>
     </div>
 
 </div>

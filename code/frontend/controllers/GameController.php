@@ -1,6 +1,7 @@
 <?php
 namespace frontend\controllers;
 
+use common\components\YoutubeHelper;
 use common\models\Game;
 use Yii;
 use yii\base\InvalidParamException;
@@ -82,9 +83,15 @@ class GameController extends Controller
         $offset = ($page - 1) * 20;
         $limit = 20;
 
-        $games = Game::find()->offset($offset)->limit($limit)->all();
+        $highlightedGame = Game::find()->orderBy('updated_at DESC')->one();
+
+        $hotGames = Game::find()->orderBy('updated_at DESC')->limit(6)->all();
+
+        $games = Game::find()->orderBy('updated_at DESC')->offset($offset)->limit($limit)->all();
 
         return $this->render('games_grid', [
+            'spotlight'=>$highlightedGame,
+            'hotGames'=>$hotGames,
             'games' => $games,
         ]);
     }
@@ -99,9 +106,13 @@ class GameController extends Controller
 
         $relatedGames = Game::find()->orderBy('RAND()')->limit(3)->all();
 
+        $helper = new YoutubeHelper(['key'=>'AIzaSyD-0N_c96CCxRtRTED5mWR9QXZeP23NreM']);
+        $videos = $helper->searchVideos($game->name.' gameplay trailer', 30);
+
         return $this->render('game_details', [
             'model' => $game,
             'related' => $relatedGames,
+            'videos'=>$videos,
         ]);
     }
 
