@@ -14,7 +14,7 @@ use yii\db\Query;
 
 class GamespotController extends Controller
 {
-    public function actionScrapeComingSoonGames()
+    public function actionComingSoon()
     {
 
         set_time_limit(600); // 10 minutes
@@ -59,8 +59,6 @@ class GamespotController extends Controller
                     $gameCoverImage = $gameDetailsScraper->getCoverUrl();
                     $gamePromoImage = $gameDetailsScraper->getPromoImageUrl();
                     $gamePlatforms = $gameDetailsScraper->getPlatformsList();
-
-                    Yii::warning($gamePlatforms);
 
                     $game->name = $gameName;
                     $game->description = $gameDescription;
