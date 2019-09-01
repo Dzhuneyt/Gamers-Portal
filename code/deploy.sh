@@ -12,7 +12,7 @@ echo "Deploying app"
 php /code/init --env=Development --overwrite=All
 
 echo "Installing composer and dependencies"
-curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/bin/ --filename=composer && \
+. /code/install_composer.sh
 cd /code && \
 php /usr/bin/composer global require "fxp/composer-asset-plugin:~1.1.1" && \
 php /usr/bin/composer update
