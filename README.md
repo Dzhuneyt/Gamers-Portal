@@ -1,7 +1,10 @@
 Game portal CMS
 ===============================
 
+__NOTE: This project is now deprecated. Feel free to take a look at the code, learn from it and use it for experimental purposes. Using it for purposes that contradict the GameSpot terms may be illegal. Use it on your own responsibility.__
+
 A game catalog that fetches the games from Gamespot.com
+
 
 
 Installation
